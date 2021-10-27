@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 using Notos.Service.Exceptions;
 
@@ -12,8 +13,11 @@ namespace Notos.WebApi.Extensions
 {
     public static class ExceptionExtensions
     {
-        public static void ConfigureExceptionHandler(this IApplicationBuilder app, IWebHostEnvironment env)
+        private static ILogger _logger;
+        public static void ConfigureExceptionHandler(this IApplicationBuilder app, IWebHostEnvironment env, ILogger logger)
         {
+            _logger = logger;
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -37,7 +41,7 @@ namespace Notos.WebApi.Extensions
                                     context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
                                     break;
                             }
-
+                            _logger.LogWarning(ex.Error.Message);
                             await context.Response.WriteAsync(ex.Error.Message);
                         }
                     });

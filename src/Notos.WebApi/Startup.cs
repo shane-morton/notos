@@ -1,7 +1,10 @@
+using System.Linq;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 using Notos.Database.Interfaces;
 using Notos.Database.Postgres;
@@ -28,14 +31,19 @@ namespace Notos.WebApi
 
             services.AddScoped<IConnection, PostgresConnection>();
             services.AddScoped<ISqlRepository, SqlRepository>();
-            services.AddScoped<ISqlRepository, SqlRepository>();
+            services.AddScoped<IFlightsRepository, FlightsRepository>();
             services.AddScoped<IFlightsService, FlightsService>();
+
+            ConfigureDatabaseSettings(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger<Startup> logger)
         {
-            app.ConfigureExceptionHandler(env);
+
+            logger.LogInformation("Configuring Middleware");
+
+            app.ConfigureExceptionHandler(env, logger);
 
             app.UseHttpsRedirection();
 
@@ -47,6 +55,14 @@ namespace Notos.WebApi
             {
                 endpoints.MapControllers();
             });
+
+            logger.LogInformation(Configuration.GetSection("Postgres")["HostName"]);
+        }
+
+        public void ConfigureDatabaseSettings(IServiceCollection services)
+        {
+            services.Configure<PostgresSettings>(options =>
+                Configuration.GetSection("Postgres").Bind(options));
         }
     }
 }

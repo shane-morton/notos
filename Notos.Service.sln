@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{999CA0F3-C90
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{49BD74BA-D826-47DE-98CF-87510B75C045}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notos.WebApi.UnitTests", "tests\Notos.WebApi.UnitTests\Notos.WebApi.UnitTests.csproj", "{52453774-C96B-4D7D-ACE2-D65159720530}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Notos.WebApi.UnitTests", "tests\Notos.WebApi.UnitTests\Notos.WebApi.UnitTests.csproj", "{52453774-C96B-4D7D-ACE2-D65159720530}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,7 +36,6 @@ Global
 		{52453774-C96B-4D7D-ACE2-D65159720530}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{52453774-C96B-4D7D-ACE2-D65159720530}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52453774-C96B-4D7D-ACE2-D65159720530}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{52453774-C96B-4D7D-ACE2-D65159720530}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

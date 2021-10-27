@@ -38,11 +38,6 @@ namespace Notos.Service
 
         public async Task<bool> UpdateSite(int id, FlightItemSiteUpdateCommandDto updateSiteCommandDto)
         {
-            if (await GetFlightById(id) == null)
-            {
-                return false;
-            }
-
             var response = await _flightsRepository.UpdateSite(id, updateSiteCommandDto);
 
             return response == 1;
@@ -50,11 +45,6 @@ namespace Notos.Service
 
         public async Task<bool> UpdateLaunchedAt(int id, FlightItemLaunchedAtUpdateCommandDto updateLaunchedAtCommandDto)
         {
-            if (await GetFlightById(id) == null)
-            {
-                return false;
-            }
-
             var response = await _flightsRepository.UpdateLaunchedAt(id, updateLaunchedAtCommandDto);
 
             return response == 1;
@@ -62,11 +52,6 @@ namespace Notos.Service
 
         public async Task<bool> UpdateLandedAt(int id, FlightItemLandedAtUpdateCommandDto updateLandedAtCommandDto)
         {
-            if (await GetFlightById(id) == null)
-            {
-                return false;
-            }
-
             var response = await _flightsRepository.UpdateLandedAt(id, updateLandedAtCommandDto);
 
             return response == 1;
@@ -74,11 +59,6 @@ namespace Notos.Service
 
         public async Task<bool> UpdateDistance(int id, FlightItemDistanceUpdateCommandDto updateDistanceCommandDto)
         {
-            if (await GetFlightById(id) == null)
-            {
-                return false;
-            }
-
             var response = await _flightsRepository.UpdateDistance(id, updateDistanceCommandDto);
 
             return response == 1;
@@ -86,11 +66,6 @@ namespace Notos.Service
 
         public async Task<bool> UpdateNotes(int id, FlightItemNotesUpdateCommandDto updateNotesCommandDto)
         {
-            if (await GetFlightById(id) == null)
-            {
-                return false;
-            }
-
             var response = await _flightsRepository.UpdateNotes(id, updateNotesCommandDto);
 
             return response == 1;
@@ -98,11 +73,6 @@ namespace Notos.Service
 
         public async Task<bool> DeleteFlight(int id)
         {
-            if (await GetFlightById(id) == null)
-            {
-                return false;
-            }
-
             var response = await _flightsRepository.DeleteFlight(id);
 
             return response == 1;

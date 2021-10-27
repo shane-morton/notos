@@ -1,0 +1,31 @@
+version: '3.4'
+services:
+  notoswebapi:
+    image: notoswebapi
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    env_file:
+      - ./docker/notos_env.env
+    ports:
+      - 5000:5000
+    depends_on:
+      - notosdb
+    networks:
+      - my_network
+  notosdb:
+    image: postgres
+    container_name: notosdb
+    env_file:
+      - ./docker/db_env.env
+    ports:
+      - 5432:5432
+    volumes:
+      #- ./postgres-data:/var/lib/postgresql/data
+      # copy the sql script to create tables
+      - ./docker/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - my_network
+networks:
+  my_network:
+    driver: bridge

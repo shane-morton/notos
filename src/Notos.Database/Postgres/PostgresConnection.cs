@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 
 using Notos.Database.Interfaces;
 
@@ -11,15 +11,15 @@ namespace Notos.Database.Postgres
     public class PostgresConnection : IConnection
     {
 
-        private readonly IConfiguration _configuration;
+        private readonly PostgresSettings _settings;
 
-        public PostgresConnection(IConfiguration configuration)
+        public PostgresConnection(IOptions<PostgresSettings> settings)
         {
-            _configuration = configuration;
+            _settings = settings.Value;
         }
         public IDbConnection CreateConnection()
         {
-            var connection = new NpgsqlConnection(_configuration.GetConnectionString("PostgresConnection"));
+            var connection = new NpgsqlConnection(_settings.ConnectionString());
             connection.Open();
 
             return connection;
