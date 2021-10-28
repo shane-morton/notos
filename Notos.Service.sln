@@ -15,6 +15,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{49BD74BA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Notos.WebApi.UnitTests", "tests\Notos.WebApi.UnitTests\Notos.WebApi.UnitTests.csproj", "{52453774-C96B-4D7D-ACE2-D65159720530}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notos.Service.UnitTests", "tests\Notos.Service.UnitTests\Notos.Service.UnitTests.csproj", "{3B97EF04-7B4C-4940-BC37-E3FCB50FBBD8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notos.Database.UnitTests", "tests\Notos.Database.UnitTests\Notos.Database.UnitTests.csproj", "{6E7F911B-42A4-49EA-A0BF-14CB8BC8B21D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +40,14 @@ Global
 		{52453774-C96B-4D7D-ACE2-D65159720530}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{52453774-C96B-4D7D-ACE2-D65159720530}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52453774-C96B-4D7D-ACE2-D65159720530}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B97EF04-7B4C-4940-BC37-E3FCB50FBBD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B97EF04-7B4C-4940-BC37-E3FCB50FBBD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B97EF04-7B4C-4940-BC37-E3FCB50FBBD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B97EF04-7B4C-4940-BC37-E3FCB50FBBD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E7F911B-42A4-49EA-A0BF-14CB8BC8B21D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E7F911B-42A4-49EA-A0BF-14CB8BC8B21D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E7F911B-42A4-49EA-A0BF-14CB8BC8B21D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E7F911B-42A4-49EA-A0BF-14CB8BC8B21D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -45,6 +57,8 @@ Global
 		{6945C172-E3A8-487B-9559-BDA8BE7DCD76} = {999CA0F3-C907-49A4-B853-4460904224A3}
 		{0A6DF901-5146-4C95-A6F1-A256A49916DB} = {999CA0F3-C907-49A4-B853-4460904224A3}
 		{52453774-C96B-4D7D-ACE2-D65159720530} = {49BD74BA-D826-47DE-98CF-87510B75C045}
+		{3B97EF04-7B4C-4940-BC37-E3FCB50FBBD8} = {49BD74BA-D826-47DE-98CF-87510B75C045}
+		{6E7F911B-42A4-49EA-A0BF-14CB8BC8B21D} = {49BD74BA-D826-47DE-98CF-87510B75C045}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {522E3DA3-EFD6-4F45-A672-81A5A16A9A04}

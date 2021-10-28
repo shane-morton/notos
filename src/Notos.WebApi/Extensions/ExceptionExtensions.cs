@@ -41,6 +41,7 @@ namespace Notos.WebApi.Extensions
                                     context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
                                     break;
                             }
+
                             _logger.LogWarning(ex.Error.Message);
                             await context.Response.WriteAsync(ex.Error.Message);
                         }

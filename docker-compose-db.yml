@@ -1,21 +1,5 @@
 version: '3.4'
 services:
-  notoswebapi:
-    image: notoswebapi
-    build:
-      context: .
-      dockerfile: ./docker/Dockerfile
-    env_file:
-      - ./docker/notos_env.env
-    ports:
-      - 5000:5000
-      - 5001:5001
-    volumes:
-      - ${USERPROFILE}\.aspnet\https:/c/https:ro
-    depends_on:
-      - notosdb
-    networks:
-      - my_network
   notosdb:
     image: postgres
     container_name: notosdb

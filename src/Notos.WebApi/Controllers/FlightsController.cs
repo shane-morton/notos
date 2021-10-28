@@ -39,12 +39,15 @@ namespace Notos.WebApi.Controllers
         [HttpPost]
         public async Task<ActionResult> AddFlight([FromBody] FlightItemCommandDto flightItem)
         {
-            var response = await _flightsService.CreateFlight(flightItem);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-            return response
-                ? CreatedAtAction(ControllerContext.ActionDescriptor.ActionName,
-                    ControllerContext.ActionDescriptor.RouteValues, string.Empty)
-                : ValidationProblem();
+            await _flightsService.CreateFlight(flightItem);
+
+            return CreatedAtAction(ControllerContext.ActionDescriptor.ActionName,
+                ControllerContext.ActionDescriptor.RouteValues, string.Empty);
         }
 
         [HttpPut("{id}/updateSite")]
@@ -68,8 +71,7 @@ namespace Notos.WebApi.Controllers
         {
             var response = await _flightsService.UpdateLandedAt(id, flightItem);
 
-            return response ? NoContent()
-                : ValidationProblem();
+            return response ? NoContent() : (ActionResult)new NotFoundResult();
         }
 
         [HttpPut("{id}/updateDistance")]
@@ -77,8 +79,7 @@ namespace Notos.WebApi.Controllers
         {
             var response = await _flightsService.UpdateDistance(id, flightItem);
 
-            return response ? NoContent()
-                : ValidationProblem();
+            return response ? NoContent() : (ActionResult)new NotFoundResult();
         }
 
         [HttpPut("{id}/updateNotes")]
@@ -86,8 +87,7 @@ namespace Notos.WebApi.Controllers
         {
             var response = await _flightsService.UpdateNotes(id, flightItem);
 
-            return response ? NoContent()
-                : ValidationProblem();
+            return response ? NoContent() : (ActionResult)new NotFoundResult();
         }
 
         [HttpDelete("{id}")]

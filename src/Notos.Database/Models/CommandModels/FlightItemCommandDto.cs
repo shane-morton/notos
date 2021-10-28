@@ -1,6 +1,8 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
+using Notos.Database.ValidationAttributes;
+
 namespace Notos.Database.Models.CommandModels
 {
     public class FlightItemCommandDto
@@ -13,6 +15,7 @@ namespace Notos.Database.Models.CommandModels
         public DateTime LaunchedAt { get; set; }
 
         [Required]
+        [LandedAfterLaunched]
         public DateTime LandedAt { get; set; }
 
         public long Distance { get; set; }
