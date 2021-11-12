@@ -2,6 +2,9 @@
 {
     public class FlightsCommands
     {
+        protected FlightsCommands()
+        {            
+        }
         public const string CreateFlight =
             @"  INSERT INTO flight_items (site, launchedat, landedat, distance, notes)
                 VALUES (@site, @launchedAt, @landedAt, @distance, @notes)
