@@ -2,15 +2,16 @@
 
 namespace Notos.Service.Exceptions
 {
+    [Serializable]
     public class NotFoundException : Exception
     {
-        public NotFoundException() : base(new NotFoundMessage().ToString())
+        protected NotFoundException() : base(new NotFoundMessage().ToString())
         {
         }
     }
 
     internal class NotFoundMessage
     {
-        public const string Title = "Not Found";
+        protected const string Title = "Not Found";
     }
 }

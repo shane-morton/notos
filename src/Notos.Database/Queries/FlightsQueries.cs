@@ -2,7 +2,11 @@
 {
     public class FlightsQueries
     {
-        public static string GetAllFlights =
+        protected FlightsQueries()
+        {           
+        }
+
+        public const string GetAllFlights =
             @"SELECT * FROM flight_items";
 
 
