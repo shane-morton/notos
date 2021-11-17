@@ -53,14 +53,14 @@ jobs:
       - name: Cache SonarCloud packages
         uses: actions/cache@v1
         with:
-          path: ~\sonar\cache
+          path: ~/sonar/cache
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
       - name: Cache SonarCloud scanner
         id: cache-sonar-scanner
         uses: actions/cache@v1
         with:
-          path: .\.sonar\scanner
+          path: ./.sonar/scanner
           key: ${{ runner.os }}-sonar-scanner
           restore-keys: ${{ runner.os }}-sonar-scanner
       - name: Install SonarCloud scanner
@@ -75,8 +75,8 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         shell: pwsh
         run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"shane-morton_notos" /o:"shane-morton" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.opencover.reportsPaths=**/*coverage.opencover.xml
-          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+          ./.sonar/scanner/dotnet-sonarscanner begin /k:"shane-morton_notos" /o:"shane-morton" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.opencover.reportsPaths=**/*coverage.opencover.xml
+          ./.sonar/scanner/dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
 
   buildimage:
     needs: scan
