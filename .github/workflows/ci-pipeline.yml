@@ -37,7 +37,7 @@ jobs:
           uses: actions/upload-artifact@v2
           with:
             name: code-coverage-report
-            path: tests/*/*coverage.opencover.xml
+            path: TestResults/*/*coverage.opencover.xml
   scan:
     name: SonarCloud Scan
     needs: test
